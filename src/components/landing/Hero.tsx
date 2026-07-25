@@ -27,17 +27,9 @@ export function Hero() {
           >
             {/* Eyebrow pill badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full bg-graphite px-3 py-1.5 text-xs font-medium text-paper-white tracking-[0.012em] shadow-subtle"
-              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+              
             >
-              <span className="grid h-5 w-5 place-items-center rounded-full bg-signal-violet text-[9px] font-bold text-paper-white">
-                {EXPERT.initials}
-              </span>
-              {EXPERT.name}
-              <ArrowRight size={12} />
+
             </motion.div>
 
             {/* Headline */}

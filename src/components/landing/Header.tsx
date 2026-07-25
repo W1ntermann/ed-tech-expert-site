@@ -57,6 +57,16 @@ export function Header() {
               </a>
             ))}
           </nav>
+
+          {/* Burger button — mobile only */}
+          <button
+            type="button"
+            aria-label="Відкрити меню"
+            onClick={() => setOpen(true)}
+            className="grid h-10 w-10 place-items-center rounded-lg text-paper-white md:hidden"
+          >
+            <Menu size={20} />
+          </button>
         </div>
       </header>
 
