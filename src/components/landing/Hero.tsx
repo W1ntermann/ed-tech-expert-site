@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Play } from "lucide-react";
 
 const CHECKLIST_ITEMS = [
   {
@@ -32,6 +32,16 @@ function scrollToSection(id: string) {
 export function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-white py-10 pt-16 sm:py-16 sm:pt-24 lg:py-20 lg:pt-28">
+      {/* Background accent blobs */}
+      <div
+        className="pointer-events-none absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full blur-3xl"
+        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 12%, transparent)" }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px] rounded-full blur-3xl"
+        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 8%, transparent)" }}
+      />
+
       {/* Subtle grid pattern */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -108,17 +118,29 @@ export function Hero() {
             Дивись відео, де я ділюсь власним досвідом
           </p>
 
-          {/* CTA Button */}
-          <motion.button
-            onClick={() => scrollToSection("video-section")}
+          {/* CTA Button with animated ring */}
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-3 rounded-full bg-signal-violet px-6 py-2.5 sm:px-8 sm:py-3 text-[14px] sm:text-[15px] font-medium text-white shadow-xl shadow-signal-violet/20 transition-all hover:bg-signal-violet/90 hover:shadow-2xl hover:shadow-signal-violet/30 hover:scale-[1.03] active:scale-[0.98]"
-            style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative mt-3"
           >
-            Забрати відео
-          </motion.button>
+            {/* Expanding ring */}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-xl ring-2 ring-signal-violet opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:scale-110 group-hover:ring-2"
+            />
+            <button
+              onClick={() => scrollToSection("video-section")}
+              className="relative flex items-center gap-2 rounded-xl bg-signal-violet px-5 py-2.5 sm:px-7 sm:py-3 text-[14px] sm:text-[15px] font-medium text-white shadow-lg shadow-signal-violet/25 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white hover:text-signal-violet hover:shadow-xl hover:shadow-signal-violet/20 active:scale-[0.98]"
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+            >
+              <Play
+                size={14}
+                className="fill-current transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+              />
+              <span>Забрати відео</span>
+            </button>
+          </motion.div>
 
         </motion.div>
       </div>
