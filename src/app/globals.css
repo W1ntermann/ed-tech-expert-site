@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EdTech expert landing design system.
+ * All colors are oklch tokens; never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand palette */
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-light: var(--bg-light);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-gold: var(--accent-gold);
+  --color-text-dark: var(--text-dark);
+  --color-text-light: var(--text-light);
+  --color-text-muted-light: var(--text-muted-light);
+  --color-text-muted-dark: var(--text-muted-dark);
+  --color-surface-dark: var(--surface-dark);
+  --color-hairline-dark: var(--hairline-dark);
+  --color-hairline-light: var(--hairline-light);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-glow: 0 10px 30px -8px color-mix(in oklab, var(--accent-blue) 55%, transparent);
+  --shadow-glow-strong: 0 16px 44px -8px color-mix(in oklab, var(--accent-blue) 75%, transparent);
+  --shadow-card: 0 12px 34px -18px oklch(0.15 0.05 265 / 35%);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* #0B1224 */
+  --bg-dark: oklch(0.2 0.048 267);
+  /* #F7F5F0 */
+  --bg-light: oklch(0.968 0.008 92);
+  /* #3B5BFF */
+  --accent-blue: oklch(0.564 0.234 266.5);
+  /* #D4A94A */
+  --accent-gold: oklch(0.759 0.117 82.5);
+  /* #12131A */
+  --text-dark: oklch(0.192 0.012 275);
+  /* #E8E9F0 */
+  --text-light: oklch(0.926 0.008 278);
+
+  --text-muted-light: oklch(0.75 0.02 272);
+  --text-muted-dark: oklch(0.47 0.015 275);
+  --surface-dark: oklch(0.253 0.045 267);
+  --hairline-dark: oklch(1 0 0 / 12%);
+  --hairline-light: oklch(0.2 0.048 267 / 12%);
+
+  --background: var(--bg-light);
+  --foreground: var(--text-dark);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--text-dark);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--text-dark);
+  --primary: var(--accent-blue);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.008 92);
+  --secondary-foreground: var(--text-dark);
+  --muted: oklch(0.93 0.008 92);
+  --muted-foreground: var(--text-muted-dark);
+  --accent: var(--accent-gold);
+  --accent-foreground: var(--text-dark);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: var(--hairline-light);
+  --input: var(--hairline-light);
+  --ring: var(--accent-blue);
+}
+
+@utility grid-pattern {
+  background-image:
+    linear-gradient(to right, var(--hairline-dark) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hairline-dark) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility mesh-glow {
+  background:
+    radial-gradient(
+      60% 55% at 15% 10%,
+      color-mix(in oklab, var(--accent-blue) 28%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 45% at 85% 20%,
+      color-mix(in oklab, var(--accent-gold) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      70% 60% at 60% 100%,
+      color-mix(in oklab, var(--accent-blue) 18%, transparent),
+      transparent 70%
+    );
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
