@@ -1,4 +1,5 @@
 import { Instagram, Send } from "lucide-react";
+import { FLAGSHIP_LINKS } from "@/lib/landing-data";
 
 export function Footer() {
   return (
@@ -14,10 +15,12 @@ export function Footer() {
             </span>
           </div>
           <a
-            href="#video"
+            href={FLAGSHIP_LINKS.consulting}
+            target="_blank"
+            rel="noreferrer"
             className="mt-4 inline-block text-sm font-medium text-accent-blue underline-offset-4 hover:underline"
           >
-            Забрати відео
+            Флагманський сайт
           </a>
         </div>
 

@@ -1,27 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Compass, MessageSquare, Users } from "lucide-react";
+import { ArrowUpRight, Briefcase, Compass, MessageSquare, Users } from "lucide-react";
 import { FLAGSHIP_LINKS } from "@/lib/landing-data";
 import { fadeUp, stagger } from "./motion-primitives";
 
 const CARDS = [
   {
+    icon: Briefcase,
+    title: "Консалтинг",
+    text: "Комплексний аудит бізнес-процесів, розробка дорожньої карти та супровід впровадження змін у вашій EdTech-компанії.",
+    href: FLAGSHIP_LINKS.consulting,
+  },
+  {
     icon: MessageSquare,
-    title: "Консультації",
-    text: "Персональний розбір вашої освітньої моделі та план дій на найближчий квартал.",
-    href: FLAGSHIP_LINKS.consultations,
+    title: "Консультація",
+    text: "Персональний розбір вашої освітньої моделі та план дій на найближчий квартал з конкретними кроками.",
+    href: FLAGSHIP_LINKS.consultation,
   },
   {
     icon: Compass,
-    title: "Стратегії",
-    text: "Готові сценарії масштабування продукту, воронки та відділу продажів.",
-    href: FLAGSHIP_LINKS.strategies,
+    title: "Страт сесія",
+    text: "Глибока стратегічна сесія з командою: аналіз ринку, масштабування продукту, воронки та відділу продажів.",
+    href: FLAGSHIP_LINKS.strategySession,
   },
   {
     icon: Users,
     title: "Клуб",
-    text: "Спільнота власників EdTech-бізнесів: практика, метрики й обмін рішеннями.",
+    text: "Закрита спільнота власників EdTech-бізнесів: практичні воркшопи, розбір метрик і обмін перевіреними рішеннями.",
     href: FLAGSHIP_LINKS.club,
   },
 ];
@@ -44,10 +50,10 @@ export function FlagshipBridge() {
             Хочеш глибше? Ласкаво просимо у флагман
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 max-w-xl text-text-muted-light">
-            Три формати роботи — обери той, що відповідає стадії твого бізнесу.
+            Чотири формати роботи — обери той, що відповідає стадії твого бізнесу.
           </motion.p>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {CARDS.map(({ icon: Icon, ...card }) => (
               <motion.a
                 key={card.title}

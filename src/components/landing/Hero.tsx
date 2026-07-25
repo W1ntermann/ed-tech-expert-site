@@ -26,23 +26,6 @@ export function Hero() {
               45 хвилин без води: як влаштовані сучасні освітні воронки, чому падає конверсія
               у класичних запусках і які механіки дають стабільне зростання щороку.
             </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <motion.a
-                href="#video"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-                className="inline-flex items-center justify-center rounded-full bg-accent-blue px-8 py-4 text-base font-semibold text-text-light shadow-glow transition-shadow duration-200 hover:shadow-glow-strong"
-              >
-                Забрати відео
-              </motion.a>
-              <a
-                href="#checklist"
-                className="inline-flex items-center justify-center rounded-full border border-hairline-dark px-8 py-4 text-base font-medium text-text-light transition-colors hover:border-accent-blue"
-              >
-                Що всередині
-              </a>
-            </div>
           </motion.div>
 
           <motion.div
