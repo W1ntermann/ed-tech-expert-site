@@ -8,7 +8,7 @@ import { fadeUp, stagger } from "./motion-primitives";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 bg-void-black pb-20 sm:pb-28">
+    <section id="about" className="scroll-mt-24 bg-white pb-20 sm:pb-28">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         {/* ─── Top row: portrait + bio ─── */}
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -30,9 +30,9 @@ export function About() {
               className="aspect-[4/5] w-full object-cover opacity-90"
               style={{ filter: "grayscale(30%)" }}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-void-black/70 to-transparent" />
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-void-black/80 to-transparent p-6">
-              <p className="text-lg font-medium text-paper-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/70 to-transparent" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/80 to-transparent p-6">
+              <p className="text-lg font-medium text-brand-black" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
                 {EXPERT.name}
               </p>
               <p className="text-sm text-fog" style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}>
@@ -51,7 +51,7 @@ export function About() {
             >
               <motion.h2
                 variants={fadeUp}
-                className="text-[clamp(1.8rem,3.5vw,2.6rem)] leading-tight text-paper-white"
+                className="text-[clamp(1.8rem,3.5vw,2.6rem)] leading-tight text-brand-black"
                 style={{ fontFamily: "var(--font-inter)", fontWeight: 300, letterSpacing: "-0.01em" }}
               >
                 Про експерта
@@ -79,7 +79,7 @@ export function About() {
                         transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
                       },
                     }}
-                    className="rounded-xl bg-carbon p-5 shadow-subtle"
+                    className="rounded-xl bg-obsidian p-5 shadow-subtle"
                     style={{ borderRadius: "var(--radius-cards)" }}
                   >
                     <p

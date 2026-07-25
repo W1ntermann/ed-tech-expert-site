@@ -40,7 +40,7 @@ export function FlagshipBridge() {
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgb(255 255 255 / 1) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 1) 1px, transparent 1px)",
+            "linear-gradient(to right, rgb(0 0 0 / 1) 1px, transparent 1px), linear-gradient(to bottom, rgb(0 0 0 / 1) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
         }}
       />
@@ -53,7 +53,7 @@ export function FlagshipBridge() {
         >
           <motion.h2
             variants={fadeUp}
-            className="max-w-2xl text-[clamp(1.9rem,4vw,3rem)] leading-tight text-paper-white"
+            className="max-w-2xl text-[clamp(1.9rem,4vw,3rem)] leading-tight text-brand-black"
             style={{ fontFamily: "var(--font-inter)", fontWeight: 300, letterSpacing: "-0.012em" }}
           >
             Хочеш глибше? Ласкаво просимо у флагман
@@ -76,29 +76,29 @@ export function FlagshipBridge() {
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="group flex flex-col rounded-xl bg-carbon p-7 shadow-subtle transition-colors duration-200 hover:shadow-subtle-5"
+                className="group flex flex-col rounded-xl bg-white p-7 shadow-subtle transition-colors duration-200 hover:shadow-subtle-5"
                 style={{ borderRadius: "var(--radius-cards)" }}
               >
                 <span
-                  className="grid h-11 w-11 place-items-center rounded-xl text-circuit-teal"
-                  style={{ backgroundColor: "color-mix(in srgb, var(--color-circuit-teal) 12%, transparent)" }}
+                  className="grid h-11 w-11 place-items-center rounded-xl text-signal-violet"
+                  style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 12%, transparent)" }}
                 >
                   <Icon size={20} />
                 </span>
                 <h3
-                  className="mt-6 text-xl font-medium text-paper-white"
+                  className="mt-6 text-xl font-medium text-brand-black"
                   style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
                 >
                   {card.title}
                 </h3>
                 <p
-                  className="mt-2 flex-1 text-sm leading-relaxed text-fog"
-                  style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.6 }}
+                  className="mt-2 flex-1 text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.6, color: "var(--color-signal-violet)" }}
                 >
                   {card.text}
                 </p>
                 <span
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-signal-violet transition-colors duration-200 group-hover:text-paper-white"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-signal-violet transition-colors duration-200 group-hover:text-brand-black"
                   style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
                 >
                   Перейти

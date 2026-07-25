@@ -1,7 +1,6 @@
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { About } from "@/components/landing/About";
-import { Checklist } from "@/components/landing/Checklist";
 import { FlagshipBridge } from "@/components/landing/FlagshipBridge";
 import { Footer } from "@/components/landing/Footer";
 

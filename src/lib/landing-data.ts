@@ -6,15 +6,15 @@ export const FLAGSHIP_LINKS = {
 };
 
 export const EXPERT = {
-  name: "Олександр Петренко",
-  initials: "ОП",
+  name: "Ілля Літун",
+  initials: "ІЛ",
   tagline: "Власник освітнього холдингу. Будую EdTech, який системно росте.",
   shortBio:
     "Підприємець, методолог і стратег в освітньому бізнесі. Пройшов шлях від онлайн-школи на 50 учнів до холдингу з 5 освітніх проєктів, що генерують понад 500 нових учнів щомісяця.",
   quote: "Освіта — це не разовий запуск. Це система, яка або працює щороку, або зникає.",
   socials: {
     telegram: "https://t.me/placeholder",
-    instagram: "https://instagram.com/placeholder",
+    instagram: "https://www.instagram.com/illya_litun?igsh=MTY0ZWwybnowd2E4YQ%3D%3D",
     youtube: "https://youtube.com/@placeholder",
   },
   videoUrl: "https://www.youtube.com/embed/placeholder",

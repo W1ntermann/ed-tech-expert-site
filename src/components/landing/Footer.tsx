@@ -5,18 +5,18 @@ import { EXPERT, FLAGSHIP_LINKS } from "@/lib/landing-data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ash bg-void-black py-12">
+    <footer className="border-t border-ash bg-white py-12">
       <div className="mx-auto grid max-w-[1200px] gap-8 px-5 sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
         <div className="min-w-0">
           <div className="flex min-w-0 items-center gap-3">
             <span
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-signal-violet text-sm font-medium text-paper-white"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-signal-violet text-sm font-medium text-white"
               style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
             >
               {EXPERT.initials}
             </span>
             <span
-              className="truncate text-base font-medium text-paper-white"
+              className="truncate text-base font-medium text-brand-black"
               style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
             >
               {EXPERT.name}
@@ -32,7 +32,7 @@ export function Footer() {
             href={FLAGSHIP_LINKS.consulting}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-signal-violet transition-colors hover:text-paper-white"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-signal-violet transition-colors hover:text-brand-black"
             style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
           >
             Флагманський сайт
