@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Play } from "lucide-react";
 import { EXPERT } from "@/lib/landing-data";
+import videoCover from "@/assets/video-cover.jpg";
 
 const CHECKLIST_ITEMS = [
   {
@@ -24,6 +26,8 @@ const CHECKLIST_ITEMS = [
 ];
 
 export function Hero() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
   return (
     <section id="top" className="relative overflow-hidden bg-white">
       {/* Subtle grid pattern */}
@@ -120,17 +124,95 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="scroll-mt-28 flex items-center justify-center"
+            className="scroll-mt-28 flex flex-col items-center"
           >
-            <div className="relative aspect-video w-full max-w-[420px] overflow-hidden rounded-2xl bg-graphite shadow-subtle">
-              <iframe
-                src={EXPERT.videoUrl}
-                title="Відео-презентація"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
+            {/* Professional video card */}
+            <div className="group relative w-full max-w-[440px]">
+              {/* Outer glow ring */}
+              <div
+                className="absolute -inset-[2px] rounded-[22px] opacity-40 blur-sm"
+                style={{
+                  background: "linear-gradient(135deg, var(--color-signal-violet) 0%, transparent 50%, var(--color-signal-violet) 100%)",
+                }}
               />
+
+              {/* Card body */}
+              <div className="relative overflow-hidden rounded-2xl bg-graphite shadow-2xl shadow-black/15">
+                {/* Corner accents */}
+                <div className="pointer-events-none absolute left-3 top-3 h-4 w-4 rounded-tl-md border-l-2 border-t-2 border-white/15" />
+                <div className="pointer-events-none absolute right-3 top-3 h-4 w-4 rounded-tr-md border-r-2 border-t-2 border-white/15" />
+                <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 rounded-bl-md border-b-2 border-l-2 border-white/15" />
+                <div className="pointer-events-none absolute bottom-3 right-3 h-4 w-4 rounded-br-md border-b-2 border-r-2 border-white/15" />
+
+                {/* Duration badge */}
+                <div
+                  className="absolute right-4 top-4 z-10 rounded-lg px-3 py-1.5 text-xs font-semibold tracking-wide backdrop-blur-md"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 600,
+                    backgroundColor: "rgba(0,0,0,0.55)",
+                    color: "#fff",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {EXPERT.videoDuration}
+                </div>
+
+                {/* Content area */}
+                <div className="aspect-video w-full">
+                  {videoPlaying ? (
+                    <iframe
+                      src={EXPERT.videoUrl}
+                      title="Відео-презентація"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="h-full w-full"
+                    />
+                  ) : (
+                    <button
+                      onClick={() => setVideoPlaying(true)}
+                      className="relative h-full w-full cursor-pointer overflow-hidden"
+                      aria-label="Запустити відео"
+                    >
+                      {/* Cover image */}
+                      <img
+                        src={videoCover.src}
+                        alt="Обкладинка відео"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                      {/* Dark overlay on hover */}
+                      <div className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/35" />
+
+                      {/* Play button — large centered circle */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-signal-violet/90 shadow-2xl shadow-signal-violet/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-signal-violet group-hover:shadow-signal-violet/50">
+                          <Play
+                            size={30}
+                            fill="white"
+                            strokeWidth={0}
+                            className="ml-1"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Subtle pulsing ring around play button */}
+                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div className="h-[72px] w-[72px] animate-ping rounded-full bg-signal-violet/20" style={{ animationDuration: "2.5s" }} />
+                      </div>
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
+
+            {/* Label below card */}
+            <p
+              className="mt-4 text-xs font-medium tracking-widest uppercase text-fog/50"
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 500, letterSpacing: "0.14em" }}
+            >
+              Відео-презентація
+            </p>
           </motion.div>
         </div>
 
