@@ -17,10 +17,6 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-hairline-dark bg-surface-dark px-4 py-1.5 text-xs font-medium tracking-wide text-text-muted-light uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-              Безкоштовне відео
-            </span>
 
             <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] font-bold text-text-light">
               Як EdTech змінився — і що працює для продажів у 2026
@@ -75,7 +71,7 @@ export function Hero() {
               </button>
             </div>
             <p className="mt-4 text-center text-sm text-text-muted-light">
-              Відео · 45 хв · плейсхолдер для реального запису
+              Відео · 45 хв · плейсхолдер
             </p>
           </motion.div>
         </div>
