@@ -1,63 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
-import videoCover from "@/assets/video-cover.jpg";
+import { ArrowRight } from "lucide-react";
+import { EXPERT } from "@/lib/landing-data";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-bg-dark">
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-60" />
-      <div className="pointer-events-none absolute inset-0 mesh-glow" />
+    <section id="top" className="relative overflow-hidden bg-void-black">
+      {/* Subtle grid pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgb(255 255 255 / 1) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 1) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-      <div className="relative mx-auto max-w-6xl px-5 pt-32 pb-20 sm:px-8 sm:pt-40 lg:pb-28">
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-28 pb-16 sm:px-8 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-32">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          {/* ─── Text Column ─── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
+            {/* Eyebrow pill badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full bg-graphite px-3 py-1.5 text-xs font-medium text-paper-white tracking-[0.012em] shadow-subtle"
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+            >
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-signal-violet text-[9px] font-bold text-paper-white">
+                {EXPERT.initials}
+              </span>
+              {EXPERT.name}
+              <ArrowRight size={12} />
+            </motion.div>
 
-            <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] font-bold text-text-light">
-              Як EdTech змінився — і що працює для продажів у 2026
+            {/* Headline */}
+            <h1
+              className="max-w-2xl text-[clamp(2.8rem,6vw,4.25rem)] leading-[1.08]"
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 300,
+                letterSpacing: "-0.016em",
+              }}
+            >
+              Як{" "}
+              <span style={{ color: "var(--color-live-wire)", fontWeight: 300 }}>
+                EdTech змінився
+              </span>{" "}
+              — і що працює для продажів у 2026
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted-light sm:text-lg">
+            {/* Body text with signal violet emphasis */}
+            <p
+              className="mt-5 max-w-xl text-base leading-relaxed text-silver sm:text-lg"
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.7 }}
+            >
               45 хвилин без води: як влаштовані сучасні освітні воронки, чому падає конверсія
-              у класичних запусках і які механіки дають стабільне зростання щороку.
+              у класичних запусках і які механіки дають{" "}
+              <span className="text-signal-violet">стабільне зростання щороку</span>.
             </p>
+
+            {/* CTA — single primary pill button */}
+            
           </motion.div>
 
+          {/* ─── Network Diagram Column ─── */}
           <motion.div
             id="video"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="scroll-mt-28"
+            className="scroll-mt-28 flex items-center justify-center"
           >
-            <div className="group relative overflow-hidden rounded-3xl border border-hairline-dark bg-surface-dark">
-              <img
-                src={videoCover.src}
-                alt="Обкладинка відео про трансформацію EdTech-бізнесу"
-                width={1280}
-                height={720}
-                className="aspect-video w-full object-cover opacity-90"
+            <div className="relative aspect-video w-full max-w-[420px] overflow-hidden rounded-2xl bg-carbon shadow-subtle">
+              <iframe
+                src={EXPERT.videoUrl}
+                title="Відео-презентація"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full"
               />
-              <button
-                type="button"
-                aria-label="Відтворити відео"
-                className="absolute inset-0 grid place-items-center"
-              >
-                <span className="grid h-20 w-20 place-items-center rounded-full bg-accent-blue text-text-light shadow-glow transition-all duration-200 group-hover:scale-105 group-hover:shadow-glow-strong">
-                  <Play size={28} fill="currentColor" />
-                </span>
-              </button>
             </div>
-            <p className="mt-4 text-center text-sm text-text-muted-light">
-              Відео · 45 хв · плейсхолдер
-            </p>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="mt-14 flex justify-center"
+        >
+          <a
+            href="#about"
+            aria-label="Прокрутити далі"
+            className="animate-float grid h-10 w-10 place-items-center rounded-full shadow-subtle text-cloud transition-colors hover:text-signal-violet"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

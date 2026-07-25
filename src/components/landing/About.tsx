@@ -1,38 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 import portrait from "@/assets/expert-portrait.jpg";
+import { EXPERT, EXPERT_STATS } from "@/lib/landing-data";
 import { fadeUp, stagger } from "./motion-primitives";
-
-const STATS = [
-  { value: "x1.5", label: "зростання виторгу щороку" },
-  { value: "500–700", label: "нових учнів щомісяця" },
-  { value: "8", label: "років в освітньому бізнесі" },
-];
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-24 bg-bg-light pb-20 sm:pb-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+    <section id="about" className="scroll-mt-24 bg-void-black pb-20 sm:pb-28">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+        {/* ─── Top row: portrait + bio ─── */}
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          {/* Portrait */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="overflow-hidden rounded-3xl border border-hairline-light bg-surface-dark"
+            className="relative overflow-hidden rounded-xl bg-obsidian"
+            style={{ borderRadius: "var(--radius-cards)" }}
           >
             <img
               src={portrait.src}
-              alt="Портрет експерта з EdTech"
+              alt={`Портрет ${EXPERT.name} — власника освітнього холдингу`}
               width={1024}
               height={1280}
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover"
+              className="aspect-[4/5] w-full object-cover opacity-90"
+              style={{ filter: "grayscale(30%)" }}
             />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-void-black/70 to-transparent" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-void-black/80 to-transparent p-6">
+              <p className="text-lg font-medium text-paper-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+                {EXPERT.name}
+              </p>
+              <p className="text-sm text-fog" style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}>
+                {EXPERT.tagline}
+              </p>
+            </div>
           </motion.div>
 
-          <div className="rounded-3xl bg-bg-dark p-7 sm:p-10">
+          {/* Bio + Stats */}
+          <div>
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -41,21 +51,23 @@ export function About() {
             >
               <motion.h2
                 variants={fadeUp}
-                className="font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-tight text-text-light"
+                className="text-[clamp(1.8rem,3.5vw,2.6rem)] leading-tight text-paper-white"
+                style={{ fontFamily: "var(--font-inter)", fontWeight: 300, letterSpacing: "-0.01em" }}
               >
                 Про експерта
               </motion.h2>
+
               <motion.p
                 variants={fadeUp}
-                className="mt-5 text-base leading-relaxed text-text-muted-light"
+                className="mt-5 text-base leading-relaxed text-silver"
+                style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.7 }}
               >
-                Власник та ідеолог освітньої компанії. Будую освітні продукти, які системно
-                ростуть: від методології та продукту до відділу продажів і трафіку. Працюю з
-                командами, що хочуть перейти від разових запусків до передбачуваної моделі.
+                {EXPERT.shortBio}
               </motion.p>
 
-              <div className="mt-9 grid gap-4 sm:grid-cols-3">
-                {STATS.map((s) => (
+              {/* Personal stats */}
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {EXPERT_STATS.map((s) => (
                   <motion.div
                     key={s.value}
                     variants={{
@@ -67,18 +79,52 @@ export function About() {
                         transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
                       },
                     }}
-                    className="rounded-2xl border border-hairline-dark bg-surface-dark p-5"
+                    className="rounded-xl bg-carbon p-5 shadow-subtle"
+                    style={{ borderRadius: "var(--radius-cards)" }}
                   >
-                    <p className="font-display text-3xl font-bold text-accent-gold sm:text-4xl">
+                    <p
+                      className="text-3xl font-light text-signal-violet sm:text-4xl"
+                      style={{ fontFamily: "var(--font-inter)", fontWeight: 300 }}
+                    >
                       {s.value}
                     </p>
-                    <p className="mt-2 text-sm leading-snug text-text-muted-light">{s.label}</p>
+                    <p
+                      className="mt-2 text-sm leading-snug text-fog"
+                      style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
+                    >
+                      {s.label}
+                    </p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           </div>
         </div>
+
+        {/* ─── Quote ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 rounded-xl bg-obsidian p-8 sm:p-10"
+          style={{ borderRadius: "var(--radius-cards)" }}
+        >
+          <div className="flex items-start gap-4">
+            <span
+              className="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-signal-violet"
+              style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 12%, transparent)" }}
+            >
+              <Quote size={22} />
+            </span>
+            <blockquote
+              className="text-xl leading-relaxed text-silver sm:text-2xl"
+              style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.6 }}
+            >
+              {EXPERT.quote}
+            </blockquote>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

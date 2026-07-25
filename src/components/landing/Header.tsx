@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_ITEMS } from "@/lib/landing-data";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { EXPERT, NAV_ITEMS } from "@/lib/landing-data";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,47 +25,42 @@ export function Header() {
 
   return (
     <>
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-hairline-dark bg-bg-dark/80 shadow-[0_8px_30px_-16px_oklch(0_0_0/60%)] backdrop-blur-xl"
-          : "border-b border-transparent bg-bg-dark/40 backdrop-blur-md"
-      }`}
-    >
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-8">
-        <a href="#top" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent-blue font-display text-sm font-bold text-text-light">
-            ЕТ
-          </span>
-          <span className="truncate font-display text-base font-bold tracking-tight text-text-light sm:text-lg">
-            Едтех Експерт
-          </span>
-        </a>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "border-b border-ash bg-void-black/90 backdrop-blur-xl shadow-subtle"
+            : "border-b border-transparent bg-void-black/60 backdrop-blur-md"
+        }`}
+      >
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-4 sm:px-8">
+          {/* Logo */}
+          <a href="#top" className="flex min-w-0 items-center gap-3">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-signal-violet text-sm font-medium text-paper-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+              {EXPERT.initials}
+            </span>
+            <span className="truncate text-base font-medium tracking-tight text-paper-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+              {EXPERT.name}
+            </span>
+          </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              className="text-sm font-medium text-text-muted-light transition-colors hover:text-text-light"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+          {/* Desktop Nav */}
+          <nav className="hidden items-center gap-10 md:flex">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="text-sm font-medium text-cloud transition-colors hover:text-paper-white"
+                style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
 
-        <button
-          type="button"
-          aria-label="Відкрити меню"
-          onClick={() => setOpen(true)}
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-hairline-dark text-text-light md:hidden"
-        >
-          <Menu size={20} />
-        </button>
-      </div>
-    </header>
-
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -73,15 +68,15 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex flex-col bg-bg-dark md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-void-black md:hidden"
           >
-            <div className="flex items-center justify-between px-5 py-4">
-              <span className="font-display text-lg font-bold text-text-light">Меню</span>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-ash">
+              <span className="text-lg font-medium text-paper-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>Меню</span>
               <button
                 type="button"
                 aria-label="Закрити меню"
                 onClick={() => setOpen(false)}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-hairline-dark text-text-light"
+                className="grid h-10 w-10 place-items-center rounded-lg shadow-subtle text-paper-white"
               >
                 <X size={20} />
               </button>
@@ -96,7 +91,8 @@ export function Header() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.06 * i + 0.05 }}
-                  className="border-b border-hairline-dark py-5 font-display text-3xl font-bold text-text-light"
+                  className="border-b border-ash py-5 text-3xl font-light tracking-tight text-paper-white"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 300 }}
                 >
                   {item.label}
                 </motion.a>

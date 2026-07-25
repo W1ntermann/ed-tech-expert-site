@@ -25,8 +25,8 @@ const ITEMS = [
 
 export function Checklist() {
   return (
-    <section id="checklist" className="scroll-mt-24 bg-bg-light py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section id="checklist" className="scroll-mt-24 bg-void-black py-20 sm:py-28">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -35,13 +35,15 @@ export function Checklist() {
         >
           <motion.h2
             variants={fadeUp}
-            className="max-w-2xl font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight text-text-dark"
+            className="max-w-2xl text-[clamp(1.9rem,4vw,3rem)] leading-tight text-paper-white"
+            style={{ fontFamily: "var(--font-inter)", fontWeight: 300, letterSpacing: "-0.012em" }}
           >
             Що ви дізнаєтесь з відео
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-4 max-w-xl text-base text-text-muted-dark"
+            className="mt-4 max-w-xl text-fog"
+            style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
           >
             Чотири блоки, які закривають найчастіші питання власників освітніх продуктів.
           </motion.p>
@@ -51,15 +53,25 @@ export function Checklist() {
               <motion.article
                 key={item.title}
                 variants={fadeUp}
-                className="rounded-2xl border border-hairline-light bg-card p-6 shadow-card transition-colors duration-200 hover:border-accent-blue sm:p-7"
+                className="rounded-xl bg-carbon p-6 shadow-subtle transition-colors duration-200 hover:shadow-subtle-5 sm:p-7"
+                style={{ borderRadius: "var(--radius-cards)" }}
               >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-blue/10 text-accent-blue">
+                <span
+                  className="grid h-10 w-10 place-items-center rounded-xl text-circuit-teal"
+                  style={{ backgroundColor: "color-mix(in srgb, var(--color-circuit-teal) 12%, transparent)" }}
+                >
                   <Check size={20} strokeWidth={2.5} />
                 </span>
-                <h3 className="mt-5 font-display text-lg font-semibold text-text-dark sm:text-xl">
+                <h3
+                  className="mt-5 text-lg font-medium text-paper-white sm:text-xl"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+                >
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-text-muted-dark sm:text-base">
+                <p
+                  className="mt-2 text-sm leading-relaxed text-fog sm:text-base"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.6 }}
+                >
                   {item.text}
                 </p>
               </motion.article>

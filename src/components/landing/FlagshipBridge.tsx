@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, Compass, MessageSquare, Users } from "lucide-react";
+import { ArrowRight, Briefcase, Compass, MessageSquare, Users } from "lucide-react";
 import { FLAGSHIP_LINKS } from "@/lib/landing-data";
 import { fadeUp, stagger } from "./motion-primitives";
 
@@ -34,9 +34,17 @@ const CARDS = [
 
 export function FlagshipBridge() {
   return (
-    <section className="relative overflow-hidden bg-bg-dark py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-40" />
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+    <section id="services" className="scroll-mt-24 relative overflow-hidden bg-obsidian py-20 sm:py-28">
+      {/* Subtle grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgb(255 255 255 / 1) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 1) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+      <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -45,11 +53,16 @@ export function FlagshipBridge() {
         >
           <motion.h2
             variants={fadeUp}
-            className="max-w-2xl font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight text-text-light"
+            className="max-w-2xl text-[clamp(1.9rem,4vw,3rem)] leading-tight text-paper-white"
+            style={{ fontFamily: "var(--font-inter)", fontWeight: 300, letterSpacing: "-0.012em" }}
           >
             Хочеш глибше? Ласкаво просимо у флагман
           </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 max-w-xl text-text-muted-light">
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 max-w-xl text-fog"
+            style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
+          >
             Чотири формати роботи — обери той, що відповідає стадії твого бізнесу.
           </motion.p>
 
@@ -61,24 +74,37 @@ export function FlagshipBridge() {
                 target="_blank"
                 rel="noreferrer"
                 variants={fadeUp}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="group flex flex-col rounded-2xl border border-hairline-dark bg-surface-dark p-7 transition-colors duration-200 hover:border-accent-blue"
+                className="group flex flex-col rounded-xl bg-carbon p-7 shadow-subtle transition-colors duration-200 hover:shadow-subtle-5"
+                style={{ borderRadius: "var(--radius-cards)" }}
               >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent-blue/15 text-accent-blue transition-colors duration-200 group-hover:bg-accent-blue group-hover:text-text-light">
+                <span
+                  className="grid h-11 w-11 place-items-center rounded-xl text-circuit-teal"
+                  style={{ backgroundColor: "color-mix(in srgb, var(--color-circuit-teal) 12%, transparent)" }}
+                >
                   <Icon size={20} />
                 </span>
-                <h3 className="mt-6 font-display text-xl font-semibold text-text-light">
+                <h3
+                  className="mt-6 text-xl font-medium text-paper-white"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+                >
                   {card.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-muted-light">
+                <p
+                  className="mt-2 flex-1 text-sm leading-relaxed text-fog"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 400, lineHeight: 1.6 }}
+                >
                   {card.text}
                 </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-gold">
+                <span
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-signal-violet transition-colors duration-200 group-hover:text-paper-white"
+                  style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+                >
                   Перейти
-                  <ArrowUpRight
+                  <ArrowRight
                     size={16}
-                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
                   />
                 </span>
               </motion.a>
