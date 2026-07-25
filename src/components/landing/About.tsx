@@ -18,7 +18,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-xl bg-obsidian"
+            className="overflow-hidden rounded-xl bg-obsidian"
             style={{ borderRadius: "var(--radius-cards)" }}
           >
             <img
@@ -27,19 +27,20 @@ export function About() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover opacity-90"
+              className="aspect-[4/5] w-full object-cover"
               style={{ filter: "grayscale(30%)" }}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/70 to-transparent" />
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/80 to-transparent p-6">
-              <p className="text-lg font-medium text-brand-black" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
-                {EXPERT.name}
-              </p>
-              <p className="text-sm text-fog" style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}>
-                {EXPERT.tagline}
-              </p>
-            </div>
           </motion.div>
+
+          {/* Name + tagline below portrait (mobile only — hidden on desktop) */}
+          <div className="lg:hidden">
+            <p className="mt-4 text-lg font-medium text-brand-black" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+              {EXPERT.name}
+            </p>
+            <p className="text-sm text-fog" style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}>
+              {EXPERT.tagline}
+            </p>
+          </div>
 
           {/* Bio + Stats */}
           <div>
