@@ -31,15 +31,23 @@ function scrollToSection(id: string) {
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-white py-10 pt-16 sm:py-16 sm:pt-24 lg:py-20 lg:pt-28">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden py-10 pt-16 sm:py-16 sm:pt-24 lg:py-20 lg:pt-28">
+      {/* Professional radial spotlight background */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse 70% 60% at 50% 0%, #ffffff 0%, #f5f5f8 45%, #efeff2 100%)",
+        }}
+      />
+
       {/* Background accent blobs */}
       <div
         className="pointer-events-none absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full blur-3xl"
-        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 12%, transparent)" }}
+        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 18%, transparent)" }}
       />
       <div
         className="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px] rounded-full blur-3xl"
-        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 8%, transparent)" }}
+        style={{ backgroundColor: "color-mix(in srgb, var(--color-signal-violet) 14%, transparent)" }}
       />
 
       {/* Subtle grid pattern */}
