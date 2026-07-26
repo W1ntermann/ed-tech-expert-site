@@ -28,21 +28,11 @@ export function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "border-b border-ash bg-white/90 backdrop-blur-xl shadow-subtle"
-            : "border-b border-transparent bg-white/60 backdrop-blur-md"
+            ? "border-b border-ash bg-marine-200/90 backdrop-blur-xl shadow-subtle"
+            : "border-b border-transparent bg-marine-100/60 backdrop-blur-md"
         }`}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-4 sm:px-8">
-          {/* Logo */}
-          <a href="#top" className="flex min-w-0 items-center gap-3">
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-signal-violet text-sm font-medium text-white" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
-              {EXPERT.initials}
-            </span>
-            <span className="truncate text-base font-medium tracking-tight text-brand-black" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>
-              {EXPERT.name}
-            </span>
-          </a>
-
+        <div className="mx-auto flex max-w-[1200px] items-center justify-center gap-4 px-5 py-5 sm:px-8">
           {/* Desktop Nav */}
           <nav className="hidden items-center gap-10 md:flex">
             {NAV_ITEMS.map((item) => (
@@ -50,8 +40,8 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                className="text-sm font-medium text-cloud transition-colors hover:text-signal-violet"
-                style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+                className="relative text-[15px] font-medium tracking-wide text-cloud transition-all duration-200 hover:text-signal-violet after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-signal-violet after:transition-all after:duration-200 hover:after:w-full"
+                style={{ fontFamily: "var(--font-golos)", fontWeight: 500 }}
               >
                 {item.label}
               </a>
@@ -78,10 +68,10 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex flex-col bg-white md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-marine-100 md:hidden"
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-ash">
-              <span className="text-lg font-medium text-brand-black" style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}>Меню</span>
+              <span className="text-lg font-medium text-brand-black" style={{ fontFamily: "var(--font-golos)", fontWeight: 500 }}>Меню</span>
               <button
                 type="button"
                 aria-label="Закрити меню"
@@ -102,7 +92,7 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.06 * i + 0.05 }}
                   className="border-b border-ash py-5 text-3xl font-light tracking-tight text-brand-black"
-                  style={{ fontFamily: "var(--font-inter)", fontWeight: 300 }}
+                  style={{ fontFamily: "var(--font-golos)", fontWeight: 400 }}
                 >
                   {item.label}
                 </motion.a>

@@ -4,37 +4,46 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * EdTech — Light Design System
- * White background, #100f0b headings, #255ee5 accent, Montserrat font.
+ * EdTech — Royal Blue Design System
+ * Royal blue backgrounds, white headings, #60a5fa accent.
+ * Fonts: e-Ukraine Head (headings), Golos Text (body).
  */
 
 @theme inline {
   /* ─── Colors ─── */
-  --color-brand-black: #100f0b;
-  --color-void-black: #ffffff;
-  --color-obsidian: #f5f5f6;
-  --color-carbon: #ffffff;
-  --color-graphite: #f0f0f2;
-  --color-slate: #e5e5e8;
-  --color-ash: #d4d4d8;
-  --color-steel: #a1a1aa;
-  --color-fog: #71717a;
-  --color-smoke: #52525b;
-  --color-cloud: #3f3f46;
-  --color-silver: #27272a;
-  --color-bone: #18181b;
-  --color-paper-white: #100f0b;
-  --color-signal-violet: #255ee5;
-  --color-live-wire: #255ee5;
-  --color-circuit-teal: #255ee5;
+  --color-brand-black: #ffffff;
+  --color-void-black: #1e3a8a;
+  --color-obsidian: #1e40af;
+  --color-carbon: #1e3a8a;
+  --color-graphite: #1e40af;
+  --color-slate: #1e3a8a;
+  --color-ash: #3b82f6;
+  --color-steel: #93c5fd;
+  --color-fog: #93c5fd;
+  --color-smoke: #60a5fa;
+  --color-cloud: #bfdbfe;
+  --color-silver: #dbeafe;
+  --color-bone: #1e3a8a;
+  --color-paper-white: #ffffff;
+  --color-signal-violet: #60a5fa;
+  --color-live-wire: #60a5fa;
+  --color-circuit-teal: #60a5fa;
+
+  /* ─── Marine palette ─── */
+  --color-marine-50: #1e3a8a;
+  --color-marine-100: #1e40af;
+  --color-marine-200: #1e3a8a;
+  --color-marine-300: #1e3a8a;
+  --color-marine-500: #3b82f6;
+  --color-marine-700: #1e40af;
 
   /* ─── Typography — Font Families ─── */
-  --font-sans-serif: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-tt-hoves-light: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-tt-hoves-medium: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-tt-hoves-regular: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans-serif: var(--font-golos), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-tt-hoves-light: var(--font-e-ukraine-head), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-tt-hoves-medium: var(--font-e-ukraine-head), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-tt-hoves-regular: var(--font-e-ukraine-head), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-basis-grotesque-mono-pro: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-inter: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: var(--font-golos), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* ─── Typography — Scale ─── */
   --text-caption: 11px;
@@ -113,11 +122,11 @@
   --shadow-subtle-5: rgba(0, 0, 0, 0.08) 0px 2.5px 0px -2px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 0.5px inset;
 
   /* ─── Surfaces ─── */
-  --surface-void: #ffffff;
-  --surface-obsidian: #f5f5f6;
-  --surface-carbon: #ffffff;
-  --surface-graphite: #f0f0f2;
-  --surface-slate: #e5e5e8;
+  --surface-void: #1e3a8a;
+  --surface-obsidian: #1e40af;
+  --surface-carbon: #1e3a8a;
+  --surface-graphite: #1e40af;
+  --surface-slate: #1e3a8a;
 
   /* ─── Animations ─── */
   --animate-shimmer: shimmer 3s ease-in-out infinite;
@@ -151,7 +160,7 @@
   }
 
   body {
-    background-color: var(--surface-void);
+    background-color: var(--color-marine-100);
     color: var(--color-silver);
     font-family: var(--font-inter);
     font-weight: var(--font-weight-regular);
@@ -159,15 +168,15 @@
   }
 
   h1, h2, h3 {
-    font-family: var(--font-tt-hoves-light);
-    font-weight: var(--font-weight-light);
-    letter-spacing: -0.015em;
+    font-family: var(--font-e-ukraine-head);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--color-paper-white);
   }
 
   h4, h5, h6 {
-    font-family: var(--font-tt-hoves-medium);
-    font-weight: var(--font-weight-medium);
+    font-family: var(--font-golos);
+    font-weight: 400;
     letter-spacing: -0.01em;
     color: var(--color-paper-white);
   }

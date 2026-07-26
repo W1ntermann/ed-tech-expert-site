@@ -5,26 +5,12 @@ import { EXPERT, FLAGSHIP_LINKS } from "@/lib/landing-data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ash bg-white py-12">
+    <footer className="border-t border-ash bg-marine-200 py-12">
       <div className="mx-auto grid max-w-[1200px] gap-8 px-5 sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
         <div className="min-w-0">
-          <div className="flex min-w-0 items-center gap-3">
-            <span
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-signal-violet text-sm font-medium text-white"
-              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
-            >
-              {EXPERT.initials}
-            </span>
-            <span
-              className="truncate text-base font-medium text-brand-black"
-              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
-            >
-              {EXPERT.name}
-            </span>
-          </div>
           <p
             className="mt-3 max-w-sm text-sm text-fog"
-            style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
+            style={{ fontFamily: "var(--font-golos)", fontWeight: 400 }}
           >
             {EXPERT.tagline}
           </p>
@@ -33,7 +19,7 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-signal-violet transition-colors hover:text-brand-black"
-            style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+            style={{ fontFamily: "var(--font-golos)", fontWeight: 500 }}
           >
             Флагманський сайт
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -75,9 +61,9 @@ export function Footer() {
       <div className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8">
         <p
           className="border-t border-ash pt-6 text-xs text-smoke"
-          style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-golos)", fontWeight: 400 }}
         >
-          © {new Date().getFullYear()} {EXPERT.name}. Усі права захищені.
+          © {new Date().getFullYear()}. Усі права захищені.
         </p>
       </div>
     </footer>

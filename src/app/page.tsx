@@ -6,12 +6,11 @@ import { Footer } from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-void-black">
+    <div className="min-h-screen">
       <Header />
       <main>
         <Hero />
         <About />
-        <FlagshipBridge />
       </main>
       <Footer />
     </div>

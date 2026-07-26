@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Golos_Text } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-inter",
+const golosText = Golos_Text({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600"],
+  variable: "--font-golos",
+});
+
+const eUkraineHead = localFont({
+  src: [
+    {
+      path: "../../public/fonts/e-UkraineHead-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/e-UkraineHead-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-e-ukraine-head",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable}`}>
+    <html lang="uk" className={`${golosText.variable} ${eUkraineHead.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -32,11 +32,11 @@ function scrollToSection(id: string) {
 export function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden py-10 pt-16 sm:py-16 sm:pt-24 lg:py-20 lg:pt-28">
-      {/* Professional radial spotlight background */}
+      {/* Marine soft radial spotlight background */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: "radial-gradient(ellipse 70% 60% at 50% 0%, #ffffff 0%, #f5f5f8 45%, #efeff2 100%)",
+          background: "radial-gradient(ellipse 70% 60% at 50% 0%, #1e3a8a 0%, #1e40af 45%, #172554 100%)",
         }}
       />
 
@@ -69,15 +69,16 @@ export function Hero() {
         >
           {/* Headline */}
           <h1
-            className="text-[clamp(1.2rem,3vw,2.2rem)] leading-[1.15] text-brand-black"
+            className="text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.08] text-brand-black tracking-tight"
             style={{
-              fontFamily: "var(--font-inter)",
-              fontWeight: 300,
-              letterSpacing: "-0.016em",
+              fontFamily: "var(--font-e-ukraine-head)",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "-0.01em",
             }}
           >
             ЯК ВИЖИТИ В КРИЗУ{" "}
-            <span style={{ color: "var(--color-signal-violet)", fontWeight: 300 }}>
+            <span style={{ color: "var(--color-signal-violet)", fontWeight: 700 }}>
               онлайн-школам
             </span>{" "}
             і вирости до 500-700 учнів щомісяця завдяки працюючим інструментам маркетингу?
@@ -86,7 +87,7 @@ export function Hero() {
           {/* Checklist heading */}
           <p
             className="mt-6 sm:mt-10 text-[13px] text-brand-black sm:text-[15px]"
-            style={{ fontFamily: "var(--font-inter)", fontWeight: 600 }}
+            style={{ fontFamily: "var(--font-golos)", fontWeight: 600 }}
           >
             Що ви дізнаєтесь після перегляду :
           </p>
@@ -102,12 +103,12 @@ export function Hero() {
                   <Check size={12} strokeWidth={2.5} style={{ color: "var(--color-signal-violet)" }} />
                 </span>
                 <span
-                  className="text-[13px] leading-snug text-fog sm:text-[14px]"
-                  style={{ fontFamily: "var(--font-inter)", fontWeight: 400 }}
-                >
-                  <span
-                    className="font-medium text-brand-black"
-                    style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+              className="text-[13px] leading-snug text-fog sm:text-[14px]"
+              style={{ fontFamily: "var(--font-golos)", fontWeight: 400 }}
+            >
+              <span
+                className="font-medium text-brand-black"
+                style={{ fontFamily: "var(--font-golos)", fontWeight: 500 }}
                   >
                     {item.title}
                   </span>
@@ -121,7 +122,7 @@ export function Hero() {
           {/* CTA Subtitle */}
           <p
             className="mt-6 sm:mt-10 text-[14px] leading-relaxed text-brand-black sm:text-base"
-            style={{ fontFamily: "var(--font-inter)", fontWeight: 600, lineHeight: 1.6 }}
+            style={{ fontFamily: "var(--font-golos)", fontWeight: 600, lineHeight: 1.6 }}
           >
             Дивись відео, де я ділюсь власним досвідом
           </p>
@@ -140,7 +141,7 @@ export function Hero() {
             <button
               onClick={() => scrollToSection("video-section")}
               className="relative flex items-center gap-2 rounded-xl bg-signal-violet px-5 py-2.5 sm:px-7 sm:py-3 text-[14px] sm:text-[15px] font-medium text-white shadow-lg shadow-signal-violet/25 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white hover:text-signal-violet hover:shadow-xl hover:shadow-signal-violet/20 active:scale-[0.98]"
-              style={{ fontFamily: "var(--font-inter)", fontWeight: 500 }}
+              style={{ fontFamily: "var(--font-golos)", fontWeight: 500 }}
             >
               <Play
                 size={14}
